@@ -1,0 +1,108 @@
+$fontsize: 0.525rem;
+$textcolor: #fff;
+$bgcolor-selection: #dedede;
+$bgcolor-button: #282828;
+$msg-color: red;
+* {
+  box-sizing: border-box;
+}
+#delivery-address-container {
+  .delivery-address-header {
+    display: flex;
+    div {
+      &.address-heading {
+        float: left;
+        text-align: left;
+        width: 50%;
+      }
+      &.add-address-button {
+        float: left;
+        text-align: right;
+        width: 50%;
+        padding: 14px 0;
+        input {
+          &.input-button {
+            padding: 0.625rem;
+            background-color: $bgcolor-button;
+            font-size: 1rem;
+            font-weight: normal;
+            color: $textcolor;
+            cursor: pointer;
+            border: $textcolor;
+            width: 12.5rem;
+            border-radius: 0.3125rem;
+          }
+        }
+      }
+    }
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    overflow: hidden;
+  }
+  li {
+    float: left;
+    margin: 0.625rem;
+  }
+  div {
+    &.address-info {
+      background-color: $bgcolor-selection;
+      overflow: hidden;
+      width: 20rem;
+      min-height: 12rem;
+      padding: 0.625rem;
+      border-radius: 0.3125rem;
+
+      span {
+        font-weight: normal;
+      }
+      .radio-button-container {
+        label {
+          text-align: right;
+          padding: 0 0 0 14rem;
+          color: $msg-color;
+        }
+      }
+    }
+  }
+  p {
+    color: $msg-color;
+  }
+}
+/* Use a media query to add a break point at 500px: */
+@media screen and (max-width: 550px) {
+  #delivery-address-container {
+    width: 100%;
+    .delivery-address-header {
+      display: flex;
+      flex-direction: column;
+      div {
+        &.address-heading {
+          width: 100%;
+        }
+        &.add-address-button {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+
+    div {
+      &.address-info {
+        background-color: $bgcolor-selection;
+        overflow: hidden;
+        width: 15rem;
+        min-height: 10rem;
+        padding: 0.625rem;
+        border-radius: 0.3125rem;
+        .radio-button-container {
+          label {
+            padding: 0 0 0 9rem;
+          }
+        }
+      }
+    }
+  }
+}

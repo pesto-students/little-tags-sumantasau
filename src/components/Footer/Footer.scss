@@ -1,0 +1,114 @@
+$bgcolor: #282828;
+$textcolor: #fff;
+$fontsize-h2: 1rem;
+$fontsize-p: 0.7rem;
+$bgcolor-button: #ff9f00;
+* {
+  box-sizing: border-box;
+}
+#footer-container {
+  background-color: $bgcolor;
+  color: $textcolor;
+  overflow: hidden;
+  .left {
+    padding: 1.25rem 1.25rem 1.25rem 3.75rem;
+    float: left;
+    text-align: left;
+    width: 30%; /* The width is 30%, by default */
+    background-color: $bgcolor;
+    h2 {
+      font-size: $fontsize-h2;
+    }
+    p {
+      width: 13.125rem;
+      font-size: $fontsize-p;
+    }
+  }
+  .middle {
+    padding: 1.25rem;
+    float: left;
+    width: 30%; /* The width is 30%, by default */
+    text-align: left;
+    background-color: $bgcolor;
+    h2 {
+      padding: 0 0 0 2.5rem;
+      font-size: $fontsize-h2;
+    }
+    ul {
+      text-align: left;
+      list-style: none;
+      a {
+        color: $textcolor;
+        text-decoration: none;
+      }
+      li {
+        cursor: pointer;
+        font-size: $fontsize-p;
+      }
+    }
+  }
+  .right {
+    padding: 1.25rem 1.25rem 1.25rem 3.75rem;
+    float: left;
+    text-align: left;
+    width: 40%; /* The width is 40%, by default */
+    background-color: $bgcolor;
+    h2 {
+      font-size: $fontsize-h2;
+    }
+    p {
+      font-size: $fontsize-p;
+    }
+    span {
+      input {
+        &.subscriptio-textbox {
+          padding: 0.3rem;
+          border-radius: 0.3125rem;
+          border: solid 0.0625rem $textcolor;
+          font-size: 1rem;
+        }
+        &.subscription-button {
+          padding: 0.3rem;
+          border-radius: 0.3125rem;
+          background-color: $bgcolor-button;
+          font-size: 0.875rem;
+          font-weight: normal;
+          color: $textcolor;
+          cursor: pointer;
+          border: $textcolor;
+        }
+      }
+    }
+  }
+}
+/* Use a media query to add a break point at 768px: */
+@media screen and (max-width: 768px) {
+  #footer-container {
+    .left {
+      width: 100%;
+    }
+    .middle {
+      width: 100%;
+    }
+    .right {
+      width: 100%;
+    }
+  }
+}
+
+/* Use a media query to add a break point at 768px: */
+@media screen and (max-width: 400px) {
+  #footer-container {
+    .right {
+      span {
+        input {
+          &.subscription-button {
+            border: 1px solid;
+
+            margin-top: 0.375rem;
+          }
+        }
+      }
+    }
+  }
+}

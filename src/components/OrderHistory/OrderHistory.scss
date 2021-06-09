@@ -1,0 +1,121 @@
+$fontsize: 0.525rem;
+$textcolor: #fff;
+$bgcolor-border: #dedede;
+$bgcolor-button: #282828;
+
+* {
+  box-sizing: border-box;
+}
+#order-history-container {
+  padding: 1rem;
+  text-align: center;
+  min-height: 25.75rem;
+  section {
+    text-align: center;
+    .order-info {
+      background-color: #fff;
+      width: 70%;
+      border: 0.125rem solid $bgcolor-border;
+      text-align: left;
+      display: inline-block;
+      margin: 0.625rem;
+      border-radius: 0.625rem;
+      img {
+        width: 8.5rem;
+        height: 8.5rem;
+        padding: 0.625rem;
+        float: left;
+      }
+      .order-item-info {
+        float: left;
+        width: 55%;
+        margin: 0;
+        padding: 0 0 0 1.25rem;
+        font-size: 0.938rem;
+      }
+      .delivery-info {
+        float: right;
+        width: 25%;
+        font-size: 0.938rem;       
+      }
+    }
+    .address-div {
+      display: flex;
+      align-items: baseline;
+      p {
+        margin-left: 0.5rem;
+      }
+    }
+
+    .rating-div {
+      margin-top: 2rem;
+      p{
+        font-size: 1rem;
+        font-weight: bold;
+      }
+      i{
+        color: #eaeaea;
+        cursor: pointer;
+        margin-right: 0.3rem;
+        font-size: 1.2rem;
+        &:hover {
+          color: gold;
+          transform: scale(1.2);
+        }
+        &.checked {
+          color: gold;
+        }
+      }
+    }
+  }
+}
+
+/* Use a media query to add a break point at 768px: */
+@media screen and (max-width: 768px) {
+  #order-history-container {
+    padding: 0;
+    section {
+      .order-info {
+        width: 95%;
+        .order-item-info {
+          width: 50%;
+        }
+        .delivery-info {
+          width: 30%;
+        }
+      }
+    }
+  }
+}
+
+/* Use a media query to add a break point at 550px: */
+@media screen and (max-width: 550px) {
+  #order-history-container {
+    section {
+      .order-info {
+        img {
+          width: 5.25rem;
+          height: 5.25rem;
+        }
+        .order-item-info {
+          width: 70%;
+        }
+        .delivery-info {
+          display: flex;
+          flex-direction: row;          
+          width: 100%;
+          padding: 0.063rem;
+          .delivery-date{
+            width: 50%;
+          }
+          .order-date{
+            width: 50%;
+            text-align: right;
+            padding-top: 0.313rem;
+          }
+          
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,134 @@
+$fontsize: 0.525rem;
+$bgcolor-button: #282828;
+$boder-color: #282828;
+$validation-msg: red;
+* {
+  box-sizing: border-box;
+}
+#add-delivery-address-container {
+  padding: 1.25rem;
+
+  h3 {
+    text-align: center;
+  }
+  input {
+    &.input-box {
+      padding: 0.3125rem;
+      border-radius: 0.3125rem;
+      border: solid 0.0625rem $boder-color;
+      font-size: 1rem;
+      width: 25rem;
+      height: 2.5rem;
+      margin: 0.625rem 0 0;
+    }
+  }
+  p {
+    margin: 0;
+    padding: 0.125rem 0 0 0;
+  }
+  select {
+    padding: 0.3125rem;
+    border-radius: 0.3125rem;
+    border: solid 0.0625rem $boder-color;
+    font-size: 1rem;
+    width: 25rem;
+    height: 2.5rem;
+    margin: 0.625rem 0 0;
+  }
+  .left {
+    float: left;
+    text-align: right;
+    width: 50%;
+    padding: 0.425rem 0.938rem;
+    .input-heading {
+      margin: 0;
+      padding: 0.125rem 0 0 14.5rem;
+      text-align: left;  
+      &.input-heading:after{
+        content:" *";
+        color: $validation-msg;
+      }    
+    }
+    .validation-msg-left {
+      margin: 0;
+      font-size: 0.9rem;
+      text-align: left;
+      padding: 0.1rem 0 0 14.5rem;
+      color: $validation-msg;
+      height: 0.938rem;
+    }
+  }
+  .right {
+    float: left;
+    text-align: left;
+    width: 50%;
+    padding: 0.425rem 0.938rem;
+    .validation-msg-right {
+      margin: 0;
+      font-size: 0.9rem;
+      text-align: left;
+      padding: 0.1rem 0 0 0;
+      color: $validation-msg;
+      height: 0.938rem;
+    }
+    .required-field:after{
+      content:" *";
+      color: $validation-msg;
+    }
+  }
+  section {
+    text-align: center;
+    span {
+      input {
+        &.input-button {
+          padding: 0.625rem;
+          border-radius: 0.3125rem;
+          background-color: $bgcolor-button;
+          font-size: 1rem;
+          font-weight: normal;
+          color: #fff;
+          cursor: pointer;
+          border: #fff;
+          width: 12.5rem;
+          margin: 0.625rem;
+        }
+      }
+    }
+  }
+}
+/* Use a media query to add a break point at 768px: */
+@media screen and (max-width: 768px) {
+  #add-delivery-address-container {
+    display: flex;
+    flex-direction: column;
+    .left {
+      width: 100%;
+      text-align: left;
+      .input-heading {
+        padding: 0.125rem 0 0 0;
+        text-align: left;
+      }
+      .validation-msg-left {
+        text-align: left;
+        padding: 0.1rem 0 0 0;
+      }
+    }
+    .right {
+      width: 100%;
+    }
+  }
+}
+
+/* Use a media query to add a break point at 550px: */
+@media screen and (max-width: 500px) {
+  #add-delivery-address-container {
+    input {
+      &.input-box {
+        width: 18rem;
+      }
+    }
+    select {
+      width: 18rem;
+    }
+  }
+}
