@@ -1,36 +1,38 @@
-import { FC } from 'react';
-import { STATIC_DATA } from '../../config/StaticData';
+import React, { FC } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { CONFIG } from '../../config/Config';
+import { STATIC_DATA, TEST_DATA } from '../../config/StaticData';
 import { CategoryHeaderModel } from '../../models/CategoryHeader.model';
 import './CategoryHeader.scss';
-import * as Images from '../../assets';
 
-const CategoryHeader: FC<CategoryHeaderModel.IProps> = () => {
+const CategoryHeader: FC<CategoryHeaderModel.IProps> = ({ language }) => {
+  const { CATEGORIES_DATA } = TEST_DATA;
   const {
-    ENGLISH: {
-      App: { CATEGORIES },
-      NO_SUCH_IMAGE,
-    },
+    [language]: { HOME },
   } = STATIC_DATA;
+  const {
+    ROUTES: { PRODUCTS },
+  } = CONFIG;
 
   return (
     <div id='category-header-div'>
       <ul>
-        {Object.keys(CATEGORIES).map((category) => (
-          <li key={category}>
-            <img
-              src={
-                (Images as any)[
-                  (CATEGORIES as { [key: string]: string })[category]
-                ]
-              }
-              alt={NO_SUCH_IMAGE}
-            ></img>
-            {category}
-          </li>
+        <Link to='/'>
+          <li>{HOME}</li>
+        </Link>
+        {CATEGORIES_DATA.map(({ id, name }) => (
+          <Link to={`${PRODUCTS}?cid=${id}&cname=${name}`} key={id}>
+            <li>{name}</li>
+          </Link>
         ))}
       </ul>
     </div>
   );
 };
 
-export default CategoryHeader;
+const mapStateToProps = (state: any) => ({
+  language: state.dashboardState.language,
+});
+
+export default connect(mapStateToProps)(CategoryHeader);
